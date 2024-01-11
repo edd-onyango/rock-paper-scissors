@@ -1,12 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
 * {
     margin: 0;
+    padding:0;
     box-sizing:border-box;
+    font-family: roboto;
 }
+
+body {
+    margin: 0 auto;
+    width: 1100px;
+}
+
 
 .container {
     display: flex;
     justify-content: center;
+    /* background-color: olivedrab; */
+    width: 1100px;
+    margin:0 auto;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: 400px;
-    background-color: olivedrab;
+    height: 150px;
+    background-color: rgb(124, 169, 221);
+    width: inherit;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap:wrap;
+    background-color: #260071;
+    width: inherit;
+    height: 300px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.btn button {
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);
+    background: whitesmoke;
+}
+
+.btn img {
+    background: transparent;
+    width: 100px;
+    height: 100px;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap:wrap;
+    background-color: rgb(124, 169, 221);
+    width: inherit;
+    height: 150px;
+    align-items: center;
 }

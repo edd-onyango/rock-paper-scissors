@@ -44,27 +44,31 @@ function getComputerChoice () {
 
 
 function playGame (playerSelection, computerSelection) {
+         const element = document.getElementById('results');
+         console.log(element);
+
          if(playerSelection == computerSelection) {
-            console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Draw.`);
+            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Drew.`;
             return -1;
          } 
    
          else if ((playerSelection == "rock" ) && (computerSelection == "scissors")) {
-            console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Win.`);
+            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "scissors" ) && (computerSelection == "paper")) {
-            console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Win.`);
+            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "paper" ) && (computerSelection == "rock")) {
-            console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Win.`);
+            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
             return 1;
             
          }
          else {
+            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Lose.`;
             console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Lose.`);
             return 0;
          }
