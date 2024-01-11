@@ -3,36 +3,43 @@ function launchGame () {
    let computerWinCounter = 0;
    let playerWinCounter = 0;
    let drawCounter = 0;
+   let winner = 0;
 
    document.querySelectorAll('button').forEach(occurence => {
+
          let id = occurence.getAttribute('id');
          occurence.addEventListener('click', function() {
             let playerChoice = this.id;
             let computerChoice = getComputerChoice();
-            let winner = playGame(playerChoice, computerChoice);
+            winner = playGame(playerChoice, computerChoice);
+            if (winner == 1) {
+               let playerPoints =  document.getElementById('playerPoints');
+               playerPoints.innerHTML = `Player: ${playerWinCounter+=1}`;
+               if(playerWinCounter == 5) {
+                  let youWon = document.getElementById('results');
+                  youWon.innerHTML = 'You Won the game by being the first to reach 5 points';
+                  setTimeout(function () {
+                     window.location.reload();
+                  }, 5000);
+               }
+            } else if (winner == 0){
+               let computerPoints =  document.getElementById('computerPoints');
+               computerPoints.innerHTML = `Computer: ${computerWinCounter+=1}`;
+               if(computerWinCounter == 5) {
+                  let compWon = document.getElementById('results');
+                  compWon.innerHTML = 'The Computer won the game by being the first to reach 5 points';
+                  setTimeout(function () {
+                     window.location.reload();
+                  }, 5000);
+               }
+            } else {
+               drawCounter++;
+            }
+
+            console.log(playerWinCounter);
+            console.log(computerWinCounter);
          });
    }); 
-   
-   // console.log(`Round ${noOfPlays}`);
-
-   // if (winner == 1) {
-   //    playerWinCounter++;
-   // } else if (winner == 0){
-   //    computerWinCounter++;
-   // } else {
-   //    drawCounter++;
-   // }
-
-   // if (playerWinCounter > computerWinCounter){
-   //    console.log(`You won the game:`);
-   //    console.log(`Computer: ${computerWinCounter} Player: ${playerWinCounter} Draw:${drawCounter}`);
-   // } else if (computerWinCounter > playerWinCounter){
-   //    console.log(`The computer won the game:`);
-   //    console.log(`Computer: ${computerWinCounter} Player: ${playerWinCounter} Draw:${drawCounter}`);
-   // } else {
-   //    console.log(`You drew the game:`);
-   //    console.log(`Computer: ${computerWinCounter} Player: ${playerWinCounter} Draw:${drawCounter}`);
-   // }
 }
 
 function getComputerChoice () {
@@ -45,8 +52,6 @@ function getComputerChoice () {
 
 function playGame (playerSelection, computerSelection) {
          const element = document.getElementById('results');
-         console.log(element);
-
          if(playerSelection == computerSelection) {
             element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Drew.`;
             return -1;
@@ -69,7 +74,6 @@ function playGame (playerSelection, computerSelection) {
          }
          else {
             element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Lose.`;
-            console.log(`You choose ${playerSelection} while the computer choose ${computerSelection}.Lose.`);
             return 0;
          }
 }
