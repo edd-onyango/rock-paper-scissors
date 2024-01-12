@@ -4,8 +4,9 @@ function launchGame () {
    let playerWinCounter = 0;
    let drawCounter = 0;
    let winner = 0;
+   let restartButton = document.getElementById('restart');
 
-   document.querySelectorAll('button').forEach(occurence => {
+   document.querySelectorAll('.btns button').forEach(occurence => {
 
          let id = occurence.getAttribute('id');
          occurence.addEventListener('click', function() {
@@ -18,9 +19,8 @@ function launchGame () {
                if(playerWinCounter == 5) {
                   let youWon = document.getElementById('results');
                   youWon.innerHTML = 'You Won the game by being the first to reach 5 points';
-                  setTimeout(function () {
-                     window.location.reload();
-                  }, 5000);
+                  document.getElementById('playButtons').style.pointerEvents = 'none';
+                  restartButton.style.display = "block";
                }
             } else if (winner == 0){
                let computerPoints =  document.getElementById('computerPoints');
@@ -35,9 +35,6 @@ function launchGame () {
             } else {
                drawCounter++;
             }
-
-            console.log(playerWinCounter);
-            console.log(computerWinCounter);
          });
    }); 
 }
@@ -52,11 +49,10 @@ function getComputerChoice () {
 
 function playGame (playerSelection, computerSelection) {
          const element = document.getElementById('results');
-         // const compChoice = document.getElementsByClassName('computerChoice');
          let img =  document.getElementById('compImg');
 
          if(playerSelection == computerSelection) {
-            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Drew.`;
+            element.innerHTML = `You: ${playerSelection} - Computer: ${computerSelection}.You Drew.`;
             if (computerSelection == 'rock') {
                img.src = 'images/rock.png';
                img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
@@ -73,26 +69,26 @@ function playGame (playerSelection, computerSelection) {
          else if ((playerSelection == "rock" ) && (computerSelection == "scissors")) {
             img.src = 'images/scissors.png';
             img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
-            element.innerHTML = `You: ${playerSelection} Computer${computerSelection}.You Win.`;
+            element.innerHTML = `You: ${playerSelection} - Computer${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "scissors" ) && (computerSelection == "paper")) {
             img.src = 'images/paper.png';
             img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
-            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Win.`;
+            element.innerHTML = `You: ${playerSelection} - Computer: ${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "paper" ) && (computerSelection == "rock")) {
             img.src = 'images/rock.png';
             img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
-            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Win.`;
+            element.innerHTML = `You: ${playerSelection} - Computer: ${computerSelection}.You Win.`;
             return 1;
             
          }
          else {
-            element.innerHTML = `You:${playerSelection} Computer: ${computerSelection}.You Lose.`;
+            element.innerHTML = `You:${playerSelection} - Computer: ${computerSelection}.You Lose.`;
             if (computerSelection == 'rock') {
                img.src = 'images/rock.png';
                img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
