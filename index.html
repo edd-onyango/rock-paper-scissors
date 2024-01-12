@@ -11,30 +11,70 @@
 <body>
     <div class="container">
         <div class="header">
-            <h3 class="name">Rock-Paper-Scissors Game</h3>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="btns">
-            <div class="btn">
-                <button id="rock" value="rock"><img src="images/rock.png" alt=""></button>
-            </div>
-
-            <div class="btn">
-                <button id="paper" value="paper"><img src="images/paper.png" alt=""></button>
+            <div class="gameTitle">
+                <div class="handsign" id="rock">
+                    <h3 class="name">Rock</h3>
+                </div>
+    
+                <div class="handsign" id="paper">
+                    <h3 class="name">Paper</h3>
+                </div>
+    
+                <div class="handsign" id="scissors">
+                    <h3 class="name">Scissors</h3>
+                </div>
             </div>
             
-            <div class="btn">
-                <button id="scissors" value="scissors"><img src="images/scissors.png" alt=""></button>
+            <div class="gameExplanation">
+                <p class="explain">
+                    2 players: You VS The Computer
+                </p>
+
+                <p class="explain">
+                    3 Shapes: Rock, Paper and Scissors
+                </p>
+
+                <p class="explain">
+                    1 Winner: The first one to score 5 points.
+                </p>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="display">
-            <h3 class="name">Results</h3>
-            <p id="results"></p>
+        <div class="content">
+            <div class="paraExplanation">
+                <p class="explain">
+                    Rocks beats Scissors, Scissors beats Paper and Paper Beats Rock.
+                </p>
+            </div>
+            <div class="btns">
+                <div class="btn">
+                    <button id="rock" value="rock"><img src="images/rock.png" alt=""></button>
+                    <p>Rock</p>
+                </div>
+    
+                <div class="btn">
+                    <button id="paper" value="paper"><img src="images/paper.png" alt=""></button>
+                    <p>Paper</p>
+                </div>
+                
+                <div class="btn">
+                    <button id="scissors" value="scissors"><img src="images/scissors.png" alt=""></button>
+                    <p>Scissors</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div class="display footer">
+            <h3 class="name">Score</h3>
+            <div class="computerChoice">
+                <img id="compImg" src="" alt="">
+                <p id="results"></p>
+            </div>
             <div class="points">
                     <p id="playerPoints">
                         Player Score: 0

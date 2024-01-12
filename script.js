@@ -52,28 +52,57 @@ function getComputerChoice () {
 
 function playGame (playerSelection, computerSelection) {
          const element = document.getElementById('results');
+         // const compChoice = document.getElementsByClassName('computerChoice');
+         let img =  document.getElementById('compImg');
+
          if(playerSelection == computerSelection) {
-            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Drew.`;
+            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Drew.`;
+            if (computerSelection == 'rock') {
+               img.src = 'images/rock.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            } else if (computerSelection == 'paper') {
+               img.src = 'images/paper.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            } else if (computerSelection == 'scissors') {
+               img.src = 'images/scissors.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            }
             return -1;
          } 
    
          else if ((playerSelection == "rock" ) && (computerSelection == "scissors")) {
-            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
+            img.src = 'images/scissors.png';
+            img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            element.innerHTML = `You: ${playerSelection} Computer${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "scissors" ) && (computerSelection == "paper")) {
-            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
+            img.src = 'images/paper.png';
+            img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Win.`;
             return 1;
          }
    
          else if ((playerSelection == "paper" ) && (computerSelection == "rock")) {
-            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Win.`;
+            img.src = 'images/rock.png';
+            img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            element.innerHTML = `You: ${playerSelection} Computer: ${computerSelection}.You Win.`;
             return 1;
             
          }
          else {
-            element.innerHTML = `You choose ${playerSelection} while the computer choose ${computerSelection}.You Lose.`;
+            element.innerHTML = `You:${playerSelection} Computer: ${computerSelection}.You Lose.`;
+            if (computerSelection == 'rock') {
+               img.src = 'images/rock.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            } else if (computerSelection == 'paper') {
+               img.src = 'images/paper.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            } else if (computerSelection == 'scissors') {
+               img.src = 'images/scissors.png';
+               img.style = "width:150px; height:150px; border: none; border-radius: 100px;box-shadow: 0px 0px 1px 2px rgb(161, 161, 161);background: whitesmoke;";
+            }
             return 0;
          }
 }
